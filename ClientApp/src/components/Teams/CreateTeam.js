@@ -35,8 +35,7 @@ export const CreateTeam = (props) => {
     GetData();
   }, [leagueApiUrl]);
 
-    const teamCreateHandler = (team) => {
-      console.log("team : ", team)
+    const teamCreateHandler = (team) => {      
       axios.post(teamApiUrl, team).then((res) => {
       props.history.replace("/teamList");
     });

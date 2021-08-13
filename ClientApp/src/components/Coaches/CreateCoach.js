@@ -10,8 +10,7 @@ export const CreateCoach = (props) => {
     const apiUrl = `https://localhost:5001/api/coaches`;
 
 
-    const coachCreateHandler = (coach) => {
-        console.log("coach : ", coach);
+    const coachCreateHandler = (coach) => {        
         axios.post(apiUrl, coach)
             .then(res => {
                 props.history.replace('/coachList')

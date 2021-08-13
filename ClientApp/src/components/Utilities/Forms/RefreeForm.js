@@ -17,8 +17,14 @@ export const RefreeForm = (props) => {
     const handleChange = (event) => {
         event.persist();
         const { name, type, value } = event.target
-        setRefree({ ...refree, [name]: type === "number" ? +value : value })
+        setRefree({ ...refree, [name]: Value(type, value) })
     }
+
+
+    const Value = (type, value) => {
+        return type === "number" ? +value : value
+    }
+
 
 
     return (

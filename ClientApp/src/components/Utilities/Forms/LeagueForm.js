@@ -17,7 +17,12 @@ export const LeagueForm = (props) => {
     const handleChange = (event) => {
         event.persist();
         const { name, type, value } = event.target
-        setLeague({ ...league, [name]: type === "number" ? +value : value })
+        setLeague({ ...league, [name]: Value(type, value) })
+    }
+
+
+    const Value = (type, value) => {
+        return type === "number" ? +value : value
     }
 
 

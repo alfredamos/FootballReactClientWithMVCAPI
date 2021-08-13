@@ -21,10 +21,15 @@ export const TeamForm = (props) => {
 
     const handleChange = (event) => {
       event.persist();
-      const { name, value } = event.target;   
-      setTeam({ ...team, [name]: name === "coachId" || name === "leagueId" ? +value : value });
+        const { name, value } = event.target;
+        setTeam({ ...team, [name]: Value(name, value) });
     
-  };
+    };
+
+
+    const Value = (name, value) => {
+        return name === "coachId" || name === "leagueId" ? +value : value;
+    }
 
   return (
     <div className="border" style={{ width: "50%" }}>

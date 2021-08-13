@@ -20,9 +20,15 @@ export const MatchForm = (props) => {
 
   const handleChange = (event) => {
     const { name, type, value } = event.target;
-    event.persist();
-      setMatch({ ...match, [name]: type === "number" || name === "homeTeamId" || name === "awayTeamId" || name === "refreeId" ? +value : value });
+      event.persist();
+      setMatch({ ...match, [name]: Value(name, type, value) });
   };
+
+
+    const Value = (name, type, value) => {
+        return type === "number" || name === "homeTeamId" || name === "awayTeamId" || name === "refreeId" ? +value : value;
+    }
+
 
   return (
     <div className="border" style={{ width: "50%" }}>

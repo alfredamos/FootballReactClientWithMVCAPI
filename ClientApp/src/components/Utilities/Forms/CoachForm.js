@@ -17,8 +17,13 @@ export const CoachForm = (props) => {
     const handleChange = (event) => {
         event.persist();
         const { name, type, value } = event.target
-        
-        setCoach({ ...coach, [name]: type === "number" ? +value : value })
+
+        setCoach({ ...coach, [name]: Value(type, value) })
+    }
+
+
+    const Value = (type, value) => {
+        return type === "number" ? +value : value
     }
 
 
